@@ -153,7 +153,7 @@ int main (int argc, char **argv)
       open("/dev/null", O_RDWR); 
 
 #ifndef HAVE_LINUX_NETWORK
-#  if !(defined(IP_RECVDSTADDR) && defined(IP_RECVIF) && defined(IP_SENDSRCADDR))
+#  if !(defined(IP_RECVDSTADDR) && defined(IP_RECVIF) && defined(IP_SENDSRCADDR)) && !defined(__APPLE__)
   if (!option_bool(OPT_NOWILD))
     {
       bind_fallback = 1;
